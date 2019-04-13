@@ -1,0 +1,32 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: orders
+  kafka:
+    consumer:
+      group-id: ${spring.application.name}
+      #properties:
+      #  spring:
+      #    json:
+      #      trusted:
+      #        packages: catalog,orders
+  datasource:
+    url: jdbc:h2:tcp://127.0.0.1:9091/${spring.application.name}
+    username: sa
+    password:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#  data:
+#    mongodb:
+#      database: apps
+#      host: 127.0.0.1
+#      port: 27017
+  main:
+    lazy-initialization: false
+  output:
+    ansi:
+      enabled: always

@@ -1,0 +1,40 @@
+### kafka service health
+GET http://127.0.0.1:8081/actuator/health
+
+### mongo service health
+GET http://127.0.0.1:8082/actuator/health
+
+### catalog service health
+GET http://127.0.0.1:8083/actuator/health
+
+### orders service health
+GET http://127.0.0.1:8084/actuator/health
+
+### create new product in a catalog
+POST http://127.0.0.1:8083/api/v1/products
+Accept: application/json
+Content-Type: application/json
+
+{"name":"iPhone x","qty":"4"}
+
+### get all products with assertions
+GET http://127.0.0.1:8083/api/v1/productsADD_TYPE_INFO_HEADERS
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+
+  var content = response.body.content;
+  client.log(JSON.stringify(content));
+  client.assert(content.length === 1, "Content has not 1 product");
+
+  var first = content[0];
+  client.assert(first.qty === 4, "Quantity qty is not 4");
+  client.assert(first.name === "iPhone x", "Name is not iPhone x");
+});
+%}
+
+### verify produc-tinfos from orders
+GET http://127.0.0.1:8084/api/v1/product-infos
+
+###

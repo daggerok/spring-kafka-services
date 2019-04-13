@@ -1,0 +1,8 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: h2
+  output:
+    ansi:
+      enabled: always
