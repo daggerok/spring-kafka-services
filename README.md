@@ -26,8 +26,8 @@ _catalog_
 http :8083/actuator/health
 
 http post :8083/api/v1/products name="iPhone x" qty=4
-http get  :8083/api/v1/products | jq '.content'
-http get ":8083/api/v1/products?size=1&page=0"
+http get  :8083/api/v1/products                | jq ".content"
+http get ":8083/api/v1/products?size=1&page=0" | jq ".content"
 ```
 
 _orders_
