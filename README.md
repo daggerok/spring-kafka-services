@@ -36,7 +36,7 @@ _orders_
 ./mvnw -pl :service-orders spring-boot:run
 http :8084/actuator/health
 
-http :8084/api/v1/product-infos
+http :8084/api/v1/product-infos | jq ".content"
 ```
 
 _resources_
