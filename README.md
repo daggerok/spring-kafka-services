@@ -13,7 +13,7 @@ http :8081/actuator/health
 _h2_
 
 ```bash
-./mvnw -pl :infrastructure-H2 spring-boot:run
+./mvnw -pl :infrastructure-h2 spring-boot:run
 http :8082/actuator/health
 ```
 
