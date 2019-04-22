@@ -53,8 +53,8 @@ public class CatalogHandlers {
     var type = new ParameterizedTypeReference<Map<String, String>>() {};
     var map = request.body(type);
     var name = map.getOrDefault("name", null);
-    var quantity = map.getOrDefault("qty", null);
     if (Objects.isNull(name)) return ServerResponse.badRequest().body(Map.of("error", "name is required"));
+    var quantity = map.getOrDefault("qty", null);
     if (Objects.isNull(quantity)) return ServerResponse.badRequest().body(Map.of("error", "qty is required"));
     var qty = Long.parseLong(quantity);
     var product = Product.of(name, qty);
