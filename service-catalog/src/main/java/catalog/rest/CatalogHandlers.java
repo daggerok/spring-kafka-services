@@ -24,10 +24,10 @@ public class CatalogHandlers {
   private final Products products;
 
   public ServerResponse info(ServerRequest request) {
-    var requests = Map.of("get all products: GET", url(request, "/api/v1/products"),
-                          "find one product: GET", url(request, "/api/v1/products/{aggregateId}"),
-                          "post new product: POST", url(request, "/api/v1/products name={productName} qty={amount}"));
-    return ServerResponse.ok().body(requests);
+    return ServerResponse.ok()
+                         .body(Map.of("get all products: GET", url(request, "/api/v1/products"),
+                                      "find one product: GET", url(request, "/api/v1/products/{aggregateId}"),
+                                      "post new product: POST", url(request, "/api/v1/products name={productName} qty={amount}")));
   }
 
   private static String url(ServerRequest request, String suffix) {
